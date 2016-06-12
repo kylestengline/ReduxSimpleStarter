@@ -16,6 +16,7 @@ import ReactDOM from 'react-dom';
 const App = () => {
   return <div>Hello World</div>;
 }
+
 //instead of writing function, we can do the above. In react we use the above
 //more so than writing function 
 //when we create component, we create a type or class of component. App is a class not a instance
@@ -32,5 +33,4 @@ ReactDOM.render(<App />, document.querySelector('.container'));
 //When we write the above, we are saying write this app and render the html to
 //this element. Think of it as a target DOM node. Render this app to <this
 //place>
-//used to interact with the actual dom while React is used to create and manage
-//our components
+//ReactDOM is used to interact with the actual dom while React is used to create and manage our components
