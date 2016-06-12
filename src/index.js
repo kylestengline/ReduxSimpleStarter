@@ -23,7 +23,6 @@ const App = () => {
     </div>
   );
 }
-
 //instead of writing function, we can do the above. In react we use the above
 //more so than writing function 
 //when we create component, we create a type or class of component. App is a class not a instance
