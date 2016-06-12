@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 // go find the library called react and assign it to the variable react.
 // same with ReactDOM. You will have to go to react github to download ReactDOM
 // for later projects
+import SearchBar from './components/search_bar';
+// should be specific when referencing components
+//import {youtubeKey} from 'keys';
 
 // Create a new component. This component should produce html. 
 
@@ -14,7 +17,11 @@ import ReactDOM from 'react-dom';
 // JSX gets transpiled to es6
 // We use JSX to make our code a lot more legible.
 const App = () => {
-  return <div>Hello World</div>;
+  return ( 
+    <div>
+      <SearchBar />
+    </div>
+  );
 }
 
 //instead of writing function, we can do the above. In react we use the above
