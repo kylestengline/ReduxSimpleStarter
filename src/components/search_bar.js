@@ -1,18 +1,54 @@
 import React, { Component } from 'react';
 // whenever we translate the jsx to normal javascript we create a call named
 // React.createelement. That's why we have to import react
+
 //const SearchBar = () => {
  // return <input />;
 //};
+
 // Every react component that is class based, must have a render method
 // When we define a render function(which we always do on a class) we must return some JSX. 
 class SearchBar extends Component {
 //we define a new class called SearchBar and give it access to all functionality
 // from React.Component class. 
-   render() {
-    return <input />; 
+  constructor(props) {
+    //functional comp do not have state only class based comp do.
+    //all js classes have a function called constructor. First and only function
+    //called automatically whenever a new instance of the class is created.
+    //called when we create a new instance of SearchBar, in this case.
+    super(props);
+    //component has it's own constructor function. Whenever we define a method
+    //that's already defined on the parent class(Component) we can call that
+    //parent method on the parent class, by calling super.
+   
+    this.state = {term: '' };
+  //  When we use state, we initialize it by creating a new object and assigning it to, this.state. The object we pass will contain properties we want to record on the state. In this case, we want to record the property 'term' on the state. Basically, we want to record what the user is typing in.
   }
-}
+
+   render() {
+     //this is emitting an event.
+     //to tap into a browser event we have to write the above. onChange={
+     //this.<nameOfEvent>
+     //Curly braces are important as well.
+     //We're passing in the eventhandler to the element we want the event to
+     //occur/take place in.
+     //this will be triggered whenever the event occurs
+    return <input onChange={ event => console.log(event.target.value) } />
+  }
+ //generally it's "on" or "handle" for event handlers then the thing you want to
+ //monitor. Which in our case, would be the input. <on Name of thing or element
+ //then what that element is going to do>
+ //Whenever we call an event handler, we usually want to put in the argument
+
+//onInputChange(event) {
+    //most eventhandlers are called by the event object(argument)
+    //we want to get the value of the input. therefore we console log the events
+    //target value
+//  console.log(event.target.value) 
+//  }
+
+} //curly ends the class
+
 // When to use class based vs functional component = Start with functional
 // component and only when you decide to add some more functionality, then make
 // it a class
