@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // go find the library called react and assign it to the variable react.
 // same with ReactDOM. You will have to go to react github to download ReactDOM for later projects
-import SearchBar from './components/search_bar';
+import YTSearch from 'youtube-api-search';
 // should be specific when referencing components
-//import {youtubeKey} from 'keys';
+import SearchBar from './components/search_bar';
+import VideoList from './components/video_list'
+
+import API_KEY from '../keys';
+
 
 // Create a new component. This component should produce html. 
 
@@ -13,12 +17,26 @@ import SearchBar from './components/search_bar';
 // the text after return is known as JSX which is a subset of JavaScript allowing us to write what looks like html, but is really, behind the scenes, JavaScript
 // JSX gets transpiled to es6
 // We use JSX to make our code a lot more legible.
-const App = () => {
-  return ( 
-    <div>
-      <SearchBar />
-    </div>
-  );
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = { videos: []  };
+
+    YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+      this.setState({ videos });
+    });
+  }
+      // this.setState({ videos: videos }) when the key and value are the same, we can just pass in the key and react will be smart enough to know what to do.
+  render() {
+    return ( 
+      <div>
+        <SearchBar />
+        <VideoList videos={this.state.videos} />
+      </div>
+    );
+  }
 }
 //instead of writing function, we can do the above. In react we use the above
 //more so than writing function 
