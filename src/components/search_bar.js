@@ -17,9 +17,7 @@ class SearchBar extends Component {
     //called automatically whenever a new instance of the class is created.
     //called when we create a new instance of SearchBar, in this case.
     super(props);
-    //component has it's own constructor function. Whenever we define a method
-    //that's already defined on the parent class(Component) we can call that
-    //parent method on the parent class, by calling super.
+    //component has it's own constructor function. Whenever we define a method that's already defined on the parent class(Component) we can call that parent method on the parent class, by calling super.
    
     this.state = {term: '' };
   //  When we use state, we initialize it by creating a new object and assigning it to, this.state. The object we pass will contain properties we want to record on the state. In this case, we want to record the property 'term' on the state. Basically, we want to record what the user is typing in.
@@ -33,8 +31,19 @@ class SearchBar extends Component {
      //We're passing in the eventhandler to the element we want the event to
      //occur/take place in.
      //this will be triggered whenever the event occurs
-    return <input onChange={ event => console.log(event.target.value) } />
+    return (
+      <div>
+        <input
+          value = {this.state.term}
+          onChange={ event => this.setState({ term: event.target.value })} />
+      </div>
+// input is now a controlled component or form element. Controlled components has its value set by state. So, it's value only ever changes when the state changes. Before, we had it the opposite. 
+//whenever we reference a JavaScript variable we wrap it in curly braces. { this.state.term} like so. 
+//it's ok to reference state like this only because we're referencing it. But never make it equal to something.
+
+    );
   }
+  //To manipulate our state, we should always have this.setState
  //generally it's "on" or "handle" for event handlers then the thing you want to
  //monitor. Which in our case, would be the input. <on Name of thing or element
  //then what that element is going to do>

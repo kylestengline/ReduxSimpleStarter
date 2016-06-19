@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // go find the library called react and assign it to the variable react.
-// same with ReactDOM. You will have to go to react github to download ReactDOM
-// for later projects
+// same with ReactDOM. You will have to go to react github to download ReactDOM for later projects
 import SearchBar from './components/search_bar';
 // should be specific when referencing components
 //import {youtubeKey} from 'keys';
 
 // Create a new component. This component should produce html. 
 
-// const is similar to var, but we're saying that this variable it never going
-// to change. App is never going to be anything else.
+// const is similar to var, but we're saying that this variable it never going to change. App is never going to be anything else.
 // We're assigning app as a function.
-// the text after return is known as JSX = subset of JavaScript allowing us to
-// write what looks like html, but is really, behind the scenes, JavaScript
+// the text after return is known as JSX which is a subset of JavaScript allowing us to write what looks like html, but is really, behind the scenes, JavaScript
 // JSX gets transpiled to es6
 // We use JSX to make our code a lot more legible.
 const App = () => {
