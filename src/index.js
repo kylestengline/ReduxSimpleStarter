@@ -12,7 +12,7 @@ import API_KEY from '../keys';
 
 // Create a new component. This component should produce html. 
 
-// const is similar to var, but we're saying that this variable it never going to change. App is never going to be anything else.
+// const is similar to var, but we're saying that this variable is never going to change. App is never going to be anything else.
 // We're assigning app as a function.
 // the text after return is known as JSX which is a subset of JavaScript allowing us to write what looks like html, but is really, behind the scenes, JavaScript
 // JSX gets transpiled to es6

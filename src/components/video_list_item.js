@@ -17,6 +17,5 @@ const VideoListItem = ({video}) => {
   );
 };
 
-//  by calling video in the VideoListItem, we are saying that video is now a variable and is exactly like writing const video = props.video;
-//  It's like saying this object in the argument parans has a property called video, please grab that video and declare a new variable called video.
+//By calling video in the VideoListItem, we are saying that video is now a variable and is exactly like writing const video = props.video; It's like saying this object in the argument parans has a property called video, please grab that video and declare a new variable called video.
 export default VideoListItem;
