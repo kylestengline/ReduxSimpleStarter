@@ -23,10 +23,16 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { videos: []  };
+    this.state = {
+      videos: [],
+      selectedVideo: null
+    };
 
     YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
-      this.setState({ videos });
+      this.setState({ 
+        videos: videos,
+        selectedVideo: videos[0]
+      });
     });
   }
       // this.setState({ videos: videos }) when the key and value are the same, we can just pass in the key and react will be smart enough to know what to do.
@@ -34,12 +40,15 @@ class App extends Component {
     return ( 
       <div>
         <SearchBar />
-        <VideoDetail video={this.state.videos[0]} />
-        <VideoList videos={this.state.videos} />
+        <VideoDetail video={this.state.selectedVideo} />
+        <VideoList 
+          onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
+          videos={this.state.videos} />
       </div>
     );
   }
 }
+//Defined a function to update apps state. takes a video and updates the selected video. We pass onVideoSelect as a property into video_list. Video_list takes that propert and passes it into video_list_item. video_list_item takes that property and says whenever I get clicked, then call that function with the video that I was passed. And since each video list item has a different video, it ends up with the clicked video.
 //instead of writing function, we can do the above. In react we use the above
 //more so than writing function 
 //when we create component, we create a type or class of component. App is a class not a instance
