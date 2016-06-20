@@ -19,6 +19,8 @@ import API_KEY from '../keys';
 // the text after return is known as JSX which is a subset of JavaScript allowing us to write what looks like html, but is really, behind the scenes, JavaScript
 // JSX gets transpiled to es6
 // We use JSX to make our code a lot more legible.
+// Class is used whenever we want to have the concept of state in our components
+// We use functional components like the video list or video list items when we have a simple component that takes some number or properties and returns some amount of static JSX
 class App extends Component {
 
   constructor(props) {
