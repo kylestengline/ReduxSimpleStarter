@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // go find the library called react and assign it to the variable react.
@@ -27,19 +28,25 @@ class App extends Component {
       videos: [],
       selectedVideo: null
     };
-
-    YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
+    
+    this.videoSearch('surfboards');
+  }
+// this.setState({ videos: videos }) when the key and value are the same, we can just pass in the key and react will be smart enough to know what to do.
+//refactored the youtube search into it's on method and takes a single string: the search term. We took that method and we pass it into the search bar under the property onSearchTermChange. All search bar has to do is call onSearchTermChange with a new search term and that calls our search term function which will render new videos as you type in the search bar. Then see search_bar.js 
+  videoSearch(term) {
+    YTSearch({key: API_KEY, term: term}, (videos) => {
       this.setState({ 
         videos: videos,
         selectedVideo: videos[0]
       });
     });
   }
-      // this.setState({ videos: videos }) when the key and value are the same, we can just pass in the key and react will be smart enough to know what to do.
   render() {
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300); 
+    //what this function does is it calls debounce and can only be called once every 300 miliseconds. It won't crash, but it will only run every 300 miliseconds. We pass this into search bar and that way when the user types it will on render every 300 miliseconds.
     return ( 
       <div>
-        <SearchBar />
+        <SearchBar onSearchTermChange={videoSearch} />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList 
           onVideoSelect={selectedVideo => this.setState({selectedVideo}) }

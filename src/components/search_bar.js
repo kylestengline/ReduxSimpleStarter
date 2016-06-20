@@ -32,16 +32,21 @@ class SearchBar extends Component {
      //occur/take place in.
      //this will be triggered whenever the event occurs
     return (
-      <div>
+      <div className="search-bar">
         <input
           value = {this.state.term}
-          onChange={ event => this.setState({ term: event.target.value })} />
+          onChange={ event => this.onInputChange(event.target.value)} />
       </div>
 // input is now a controlled component or form element. Controlled components has its value set by state. So, it's value only ever changes when the state changes. Before, we had it the opposite. 
 //whenever we reference a JavaScript variable we wrap it in curly braces. { this.state.term} like so. 
 //it's ok to reference state like this only because we're referencing it. But never make it equal to something.
 
     );
+  }
+//first we set the state and then fires off the callback function, onSearchTermChange. Note: we probably don't need both onInputChange functions. There may be a way to refactor.
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term);
   }
   //To manipulate our state, we should always have this.setState
  //generally it's "on" or "handle" for event handlers then the thing you want to
