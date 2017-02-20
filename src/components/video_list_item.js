@@ -1,5 +1,5 @@
 import React from 'react';
-//props is an object
+
 const VideoListItem = ({video, onVideoSelect}) => {
   const imageUrl = video.snippet.thumbnails.default.url;
   
@@ -17,5 +17,4 @@ const VideoListItem = ({video, onVideoSelect}) => {
   );
 };
 
-//By calling video in the VideoListItem, we are saying that video is now a variable and is exactly like writing const video = props.video; It's like saying this object in the argument params has a property called video, please grab that video and declare a new variable called video.
 export default VideoListItem;
