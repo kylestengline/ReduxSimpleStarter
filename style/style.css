@@ -18,10 +18,20 @@
   border-radius: 4px;
 }
 
+.col-md-4.list-group {
+  padding-left: 15px;
+}
+
 .list-group-item {
   cursor: pointer;
+  margin-top: 25px;
+  width: 150%;
 }
 
 .list-group-item:hover {
-  background-color: #eee;
+  background-color: #999;
+}
+
+.media-heading {
+  padding: 10px;
 }
